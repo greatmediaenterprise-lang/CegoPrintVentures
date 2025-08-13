@@ -11,13 +11,18 @@ const Services = () => {
     },
     {
       icon: <FileText className="w-8 h-8" />,
-      title: "Large Format Printing",
-      description: "Banners, posters, and signage for your business and events.",
+      title: "Lamination Services",
+      description: "Professional lamination for documents, ID cards, and certificates.",
     },
     {
       icon: <Camera className="w-8 h-8" />,
-      title: "Photo Printing",
-      description: "Professional photo printing services with excellent color accuracy.",
+      title: "Passport Photos",
+      description: "Professional passport photos and portrait photography services.",
+    },
+    {
+      icon: <Palette className="w-8 h-8" />,
+      title: "Graphic Design",
+      description: "Custom graphic design for logos, banners, flyers, and marketing materials.",
     },
   ];
 
@@ -57,7 +62,7 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-center mb-12 text-primary">
             Printing Services
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {printingServices.map((service, index) => (
               <Card key={index} className="bg-gradient-card backdrop-blur-sm border-0 shadow-elegant hover:shadow-glow transition-smooth transform hover:scale-105">
                 <CardHeader className="text-center">
@@ -97,7 +102,12 @@ const Services = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="cta" size="lg" className="text-lg px-8">
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="text-lg px-8"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Get Quote for Services
           </Button>
         </div>

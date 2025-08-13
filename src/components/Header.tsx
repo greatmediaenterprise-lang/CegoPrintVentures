@@ -12,7 +12,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">Cegoprint Ventures</h1>
-              <p className="text-sm text-muted-foreground">It is not easy business center</p>
+              <p className="text-sm text-muted-foreground">Ikorodu, Lagos</p>
             </div>
           </div>
           
@@ -28,10 +28,23 @@ const Header = () => {
               <Phone size={18} />
               <span className="font-medium">08165772892</span>
             </div>
-            <Button variant="hero" size="sm" className="hidden md:flex">
+            <Button 
+              variant="hero" 
+              size="sm" 
+              className="hidden md:flex"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Get Started
             </Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="md:hidden"
+              onClick={() => {
+                const nav = document.querySelector('nav');
+                nav?.classList.toggle('hidden');
+              }}
+            >
               <Menu size={20} />
             </Button>
           </div>

@@ -125,7 +125,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">It is not easy business center</p>
+                    <p className="text-muted-foreground">Ikorodu, Lagos</p>
                     <p className="text-sm text-muted-foreground">Visit us for in-person consultations</p>
                   </div>
                 </div>
@@ -151,15 +151,33 @@ const Contact = () => {
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Document Printing</span>
-                  <Button variant="hero" size="sm">Order Now</Button>
+                  <Button 
+                    variant="hero" 
+                    size="sm"
+                    onClick={() => window.open('tel:08165772892', '_self')}
+                  >
+                    Order Now
+                  </Button>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Training Registration</span>
-                  <Button variant="secondary" size="sm">Register</Button>
+                  <Button 
+                    variant="secondary" 
+                    size="sm"
+                    onClick={() => window.open('tel:08165772892', '_self')}
+                  >
+                    Register
+                  </Button>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Bulk Printing</span>
-                  <Button variant="hero" size="sm">Get Quote</Button>
+                  <span className="text-muted-foreground">Graphic Design</span>
+                  <Button 
+                    variant="hero" 
+                    size="sm"
+                    onClick={() => window.open('tel:08165772892', '_self')}
+                  >
+                    Get Quote
+                  </Button>
                 </div>
               </CardContent>
             </Card>

@@ -27,17 +27,27 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Expert printing services and comprehensive computer training in Microsoft Excel, PowerPoint, 
-            CorelDraw, and Adobe Photoshop. Building skills that elevate your business.
+            Expert printing, lamination, graphic design, and passport photo services. Plus comprehensive 
+            computer training in Microsoft Excel, PowerPoint, CorelDraw, and Adobe Photoshop.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="cta" size="lg" className="text-lg px-8 py-6">
+            <Button 
+              variant="cta" 
+              size="lg" 
+              className="text-lg px-8 py-6"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Explore Our Services
               <ArrowRight className="ml-2" size={20} />
             </Button>
             
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-6 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary"
+              onClick={() => window.open('tel:08165772892', '_self')}
+            >
               <Phone className="mr-2" size={20} />
               Call 08165772892
             </Button>
