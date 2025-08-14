@@ -8,11 +8,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">CV</span>
+              <span className="text-white font-bold text-xs">CP</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Cegoprint Ventures</h1>
-              <p className="text-sm text-muted-foreground">Ikorodu, Lagos</p>
+              <h1 className="text-lg font-bold text-foreground">CEGOPRINT</h1>
+              <p className="text-xs text-muted-foreground">Business Centre & More</p>
             </div>
           </div>
           
@@ -24,9 +24,15 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2 text-primary">
-              <Phone size={18} />
-              <span className="font-medium">08165772892</span>
+            <div className="hidden md:flex items-center space-x-4 text-primary">
+              <div className="flex items-center space-x-1">
+                <Phone size={16} />
+                <span className="font-medium text-sm">08165772892</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Phone size={16} />
+                <span className="font-medium text-sm">08038003004</span>
+              </div>
             </div>
             <Button 
               variant="hero" 

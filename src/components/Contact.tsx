@@ -113,8 +113,8 @@ const Contact = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground">08165772892</p>
+                    <h4 className="font-semibold text-foreground mb-1">Phone Numbers</h4>
+                    <p className="text-muted-foreground">08165772892 | 08038003004</p>
                     <p className="text-sm text-muted-foreground">Call or WhatsApp us anytime</p>
                   </div>
                 </div>
@@ -125,8 +125,19 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">Ikorodu, Lagos</p>
-                    <p className="text-sm text-muted-foreground">Visit us for in-person consultations</p>
+                    <p className="text-muted-foreground">Shop 5, OBA AJIKE COMPLEX PLAZA</p>
+                    <p className="text-sm text-muted-foreground">Opposite Oreyo Grammar School, Igbogbo, Ikorodu 104102, Lagos</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-gradient-primary rounded-full text-white">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">Email</h4>
+                    <p className="text-muted-foreground">cegoprint2020@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">Send us your requirements</p>
                   </div>
                 </div>
                 
@@ -154,29 +165,29 @@ const Contact = () => {
                   <Button 
                     variant="hero" 
                     size="sm"
-                    onClick={() => window.open('tel:08165772892', '_self')}
+                    onClick={() => window.open('https://wa.me/2348165772892?text=I need document printing services', '_blank')}
                   >
                     Order Now
                   </Button>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Training Registration</span>
+                  <span className="text-muted-foreground">Bill Payments</span>
                   <Button 
                     variant="secondary" 
                     size="sm"
-                    onClick={() => window.open('tel:08165772892', '_self')}
+                    onClick={() => window.open('https://wa.me/2348165772892?text=I need bill payment services', '_blank')}
                   >
-                    Register
+                    Pay Bills
                   </Button>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Graphic Design</span>
+                  <span className="text-muted-foreground">Training Registration</span>
                   <Button 
-                    variant="hero" 
+                    variant="cta" 
                     size="sm"
-                    onClick={() => window.open('tel:08165772892', '_self')}
+                    onClick={() => window.open('https://wa.me/2348165772892?text=I want to register for computer training', '_blank')}
                   >
-                    Get Quote
+                    Register
                   </Button>
                 </div>
               </CardContent>

@@ -19,16 +19,15 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Professional
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-primary-glow">
-              Printing & Training
+              CEGOPRINT
             </span>
-            Solutions
+            Business Centre & More
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Expert printing, lamination, graphic design, and passport photo services. Plus comprehensive 
-            computer training in Microsoft Excel, PowerPoint, CorelDraw, and Adobe Photoshop.
+            Complete business solutions: Printing, Training, Bill Payments, ID Cards, Educational Services, 
+            ATM Cards, Recharge & Data. Your one-stop business center in Igbogbo, Ikorodu.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -46,10 +45,10 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-6 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary"
-              onClick={() => window.open('tel:08165772892', '_self')}
+              onClick={() => window.open('https://wa.me/2348165772892?text=Hello CEGOPRINT, I need your services', '_blank')}
             >
               <Phone className="mr-2" size={20} />
-              Call 08165772892
+              WhatsApp Us
             </Button>
           </div>
           

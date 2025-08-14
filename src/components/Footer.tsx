@@ -9,29 +9,31 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">CV</span>
+                <span className="text-white font-bold text-xs">CP</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">Cegoprint Ventures</h3>
-                <p className="text-sm text-primary-foreground/80">It is not easy business center</p>
+                <h3 className="text-xl font-bold">CEGOPRINT</h3>
+                <p className="text-sm text-primary-foreground/80">Business Centre & More</p>
               </div>
             </div>
             <p className="text-primary-foreground/80 mb-4">
-              Your trusted partner for professional printing services and comprehensive 
-              computer training programs.
+              Your complete business solution for printing, training, bill payments, 
+              educational services, and digital solutions in Igbogbo, Ikorodu.
             </p>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li>Document Printing</li>
-              <li>Large Format Printing</li>
-              <li>Photo Printing</li>
-              <li>Microsoft Excel Training</li>
-              <li>PowerPoint Training</li>
-              <li>CorelDraw & Photoshop</li>
+            <ul className="space-y-1 text-primary-foreground/80 text-sm">
+              <li>• Printing & Flex Services</li>
+              <li>• Bill Payments (Electricity, TV)</li>
+              <li>• Educational Services (WAEC, NECO)</li>
+              <li>• Passport & ID Cards</li>
+              <li>• Recharge Cards & Data</li>
+              <li>• ATM Card Services</li>
+              <li>• Computer Training</li>
+              <li>• Graphic Design</li>
             </ul>
           </div>
 
@@ -41,15 +43,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone size={16} />
-                <span className="text-primary-foreground/80">08165772892</span>
+                <span className="text-primary-foreground/80">08165772892 | 08038003004</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} />
-                <span className="text-primary-foreground/80">It is not easy business center</span>
+                <span className="text-primary-foreground/80 text-xs">Shop 5, OBA AJIKE COMPLEX PLAZA, Igbogbo, Ikorodu</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} />
-                <span className="text-primary-foreground/80">info@cegoprintventures.com</span>
+                <span className="text-primary-foreground/80">cegoprint2020@gmail.com</span>
               </div>
             </div>
           </div>
@@ -57,7 +59,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60">
-            © 2024 Cegoprint Ventures. All rights reserved. | Empowering businesses through quality and education.
+            © 2024 CEGOPRINT Business Centre. All rights reserved. | Your trusted business partner in Ikorodu.
           </p>
         </div>
       </div>
