@@ -8,8 +8,12 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">CP</span>
+              <div className="w-12 h-10 rounded-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/3cfd2bf0-a9de-436c-b2f5-8dbe91f8fb3f.png" 
+                  alt="CEGOPRINT Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold">CEGOPRINT</h3>
