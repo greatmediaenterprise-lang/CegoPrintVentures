@@ -51,7 +51,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} />
-                <span className="text-primary-foreground/80 text-xs">Shop 5, OBA AJIKE COMPLEX PLAZA, Igbogbo, Ikorodu</span>
+                <span className="text-primary-foreground/80 text-xs">235,Bola Ahmed Tinubu Road Oreyo, Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} />

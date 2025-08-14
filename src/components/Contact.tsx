@@ -125,8 +125,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">Shop 5, OBA AJIKE COMPLEX PLAZA</p>
-                    <p className="text-sm text-muted-foreground">Opposite Oreyo Grammar School, Igbogbo, Ikorodu 104102, Lagos</p>
+                    <p className="text-muted-foreground">235,Bola Ahmed Tinubu Road Oreyo</p>
+                    <p className="text-sm text-muted-foreground">Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</p>
                   </div>
                 </div>
                 
