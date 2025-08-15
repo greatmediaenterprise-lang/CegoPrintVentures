@@ -45,7 +45,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-6 bg-white/10 text-white border-white/30 hover:bg-white hover:text-primary"
-              onClick={() => window.open('https://wa.me/2348165772892?text=Hello CEGOPRINT, I need your services', '_blank')}
+              onClick={() => window.open('https://wa.me/2348038003004?text=Hello CEGOPRINT, I need your services', '_blank')}
             >
               <Phone className="mr-2" size={20} />
               WhatsApp Us

@@ -31,10 +31,6 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4 text-primary">
               <div className="flex items-center space-x-1">
                 <Phone size={16} />
-                <span className="font-medium text-sm">08165772892</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Phone size={16} />
                 <span className="font-medium text-sm">08038003004</span>
               </div>
             </div>
