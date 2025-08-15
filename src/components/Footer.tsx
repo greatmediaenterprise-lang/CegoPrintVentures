@@ -47,7 +47,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone size={16} />
-                <span className="text-primary-foreground/80">08165772892 | 08038003004</span>
+                <span className="text-primary-foreground/80">08038003004</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} />

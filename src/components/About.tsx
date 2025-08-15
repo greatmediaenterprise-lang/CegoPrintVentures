@@ -36,10 +36,10 @@ const About = () => {
               About Cegoprint Ventures
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Located at "It is not easy business center," Cegoprint Ventures has been 
-              serving the community with professional printing services and comprehensive 
-              computer training programs. We believe in empowering individuals and businesses 
-              with the skills and tools they need to succeed in today's digital world.
+              Cegoprint Ventures has been serving the community with professional printing 
+              services and comprehensive computer training programs. We believe in empowering 
+              individuals and businesses with the skills and tools they need to succeed in 
+              today's digital world.
             </p>
             
             <div className="space-y-6 mb-8">

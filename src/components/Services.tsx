@@ -176,6 +176,18 @@ const Services = () => {
       })
     },
     {
+      icon: <Monitor className="w-8 h-8" />,
+      title: "Microsoft PowerPoint",
+      description: "Create professional presentations and slide designs.",
+      details: "Master PowerPoint presentation creation with professional slide design, animations, transitions, multimedia integration, and effective presentation techniques. Perfect for business professionals, students, and educators.",
+      action: () => openServiceModal({
+        icon: <Monitor className="w-8 h-8" />,
+        title: "Microsoft PowerPoint",
+        description: "Create professional presentations and slide designs.",
+        details: "Master PowerPoint presentation creation with professional slide design, animations, transitions, multimedia integration, and effective presentation techniques. Perfect for business professionals, students, and educators."
+      })
+    },
+    {
       icon: <Palette className="w-8 h-8" />,
       title: "CorelDraw & Photoshop",
       description: "Professional graphics design and photo editing skills.",

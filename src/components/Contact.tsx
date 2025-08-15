@@ -82,7 +82,7 @@ const Contact = () => {
     } catch (error) {
       toast({
         title: "Failed to Send Message",
-        description: "Please try again or contact us directly at 08165772892.",
+        description: "Please try again or contact us directly at 08038003004.",
         variant: "destructive",
       });
     } finally {
@@ -114,7 +114,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Phone Numbers</h4>
-                    <p className="text-muted-foreground">08165772892 | 08038003004</p>
+                    <p className="text-muted-foreground">08038003004</p>
                     <p className="text-sm text-muted-foreground">Call or WhatsApp us anytime</p>
                   </div>
                 </div>
@@ -165,7 +165,7 @@ const Contact = () => {
                   <Button 
                     variant="hero" 
                     size="sm"
-                    onClick={() => window.open('https://wa.me/2348165772892?text=I need document printing services', '_blank')}
+                    onClick={() => window.open('https://wa.me/2348038003004?text=I need document printing services', '_blank')}
                   >
                     Order Now
                   </Button>
@@ -175,7 +175,7 @@ const Contact = () => {
                   <Button 
                     variant="secondary" 
                     size="sm"
-                    onClick={() => window.open('https://wa.me/2348165772892?text=I need bill payment services', '_blank')}
+                    onClick={() => window.open('https://wa.me/2348038003004?text=I need bill payment services', '_blank')}
                   >
                     Pay Bills
                   </Button>
@@ -185,7 +185,7 @@ const Contact = () => {
                   <Button 
                     variant="cta" 
                     size="sm"
-                    onClick={() => window.open('https://wa.me/2348165772892?text=I want to register for computer training', '_blank')}
+                    onClick={() => window.open('https://wa.me/2348038003004?text=I want to register for computer training', '_blank')}
                   >
                     Register
                   </Button>
