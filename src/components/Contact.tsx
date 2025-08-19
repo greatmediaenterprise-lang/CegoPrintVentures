@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 // Form validation schema with security considerations
 const contactFormSchema = z.object({
@@ -70,8 +71,22 @@ const Contact = () => {
         message: sanitizeInput(data.message),
       };
 
-      // Simulate form submission (replace with actual API call)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: sanitizedData.name,
+        from_email: sanitizedData.email,
+        phone: sanitizedData.phone,
+        subject: sanitizedData.subject,
+        message: sanitizedData.message,
+        to_email: 'cegoprint2020@gmail.com'
+      };
+
+      await emailjs.send(
+        'service_your_service_id', // Replace with your EmailJS service ID
+        'template_your_template_id', // Replace with your EmailJS template ID
+        templateParams,
+        'your_public_key' // Replace with your EmailJS public key
+      );
 
       toast({
         title: "Message Sent Successfully!",
@@ -80,6 +95,7 @@ const Contact = () => {
       
       form.reset();
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast({
         title: "Failed to Send Message",
         description: "Please try again or contact us directly at 08038003004.",
