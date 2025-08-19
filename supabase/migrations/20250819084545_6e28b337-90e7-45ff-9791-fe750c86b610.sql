@@ -1,0 +1,2 @@
+-- Enable edge functions (this is just a placeholder to ensure edge functions are available)
+-- No actual migration needed for edge functions
