@@ -17,6 +17,7 @@ import wordTrainingImg from "@/assets/services/word-training.jpg";
 import excelTrainingImg from "@/assets/services/excel-training.jpg";
 import powerpointTrainingImg from "@/assets/services/powerpoint-training.jpg";
 import designSoftwareTrainingImg from "@/assets/services/design-software-training.jpg";
+import computerTrainingClassroomImg from "@/assets/computer-training-classroom.png";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -267,6 +268,13 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-center mb-12 text-primary">
             Computer Training
           </h3>
+          <div className="mb-12 flex justify-center">
+            <img 
+              src="/lovable-uploads/d8815d67-ab6c-4281-8628-7d0a5a39fe80.png" 
+              alt="Computer Training Classroom" 
+              className="w-full max-w-4xl h-64 md:h-80 object-cover rounded-2xl shadow-elegant"
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {trainingServices.map((service, index) => (
               <Card 
