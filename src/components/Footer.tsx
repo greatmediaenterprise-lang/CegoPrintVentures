@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-12 h-10 rounded-lg overflow-hidden">
                 <img 
-                  src="/lovable-uploads/3cfd2bf0-a9de-436c-b2f5-8dbe91f8fb3f.png" 
+                  src="/lovable-uploads/111830bb-85a5-4c56-b331-60887915da24.png" 
                   alt="CEGOPRINT Logo" 
                   className="w-full h-full object-contain"
                 />
