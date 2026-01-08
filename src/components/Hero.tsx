@@ -1,12 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Play } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
-import showcaseVideo from "@/assets/cegoprint-showcase.mp4";
-import { useState } from "react";
 
 const Hero = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -60,7 +56,7 @@ const Hero = () => {
           <div className="relative max-w-3xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20">
             <div className="relative aspect-video bg-black/50">
               <video 
-                src={showcaseVideo}
+                src="/videos/cegoprint-showcase.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 loop
