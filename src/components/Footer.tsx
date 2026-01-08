@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60">
-            © 2025 CEGOPRINT Business Centre. All rights reserved. | Your trusted business partner in Ikorodu.
+            © 2026 CEGOPRINT Business Centre. All rights reserved. | Your trusted business partner in Ikorodu.
           </p>
         </div>
       </div>

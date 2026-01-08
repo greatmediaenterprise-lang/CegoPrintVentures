@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Play } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import showcaseVideo from "@/assets/cegoprint-showcase.mp4";
+import { useState } from "react";
 
 const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -30,7 +34,7 @@ const Hero = () => {
             ATM Cards, Recharge & Data. Your one-stop business center in Igbogbo, Ikorodu.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button 
               variant="cta" 
               size="lg" 
@@ -50,6 +54,25 @@ const Hero = () => {
               <Phone className="mr-2" size={20} />
               WhatsApp Us
             </Button>
+          </div>
+
+          {/* Video Showcase */}
+          <div className="relative max-w-3xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20">
+            <div className="relative aspect-video bg-black/50">
+              <video 
+                src={showcaseVideo}
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={heroImage}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 text-left">
+                <p className="text-sm font-medium text-white/90">See Our Business Centre in Action</p>
+              </div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
