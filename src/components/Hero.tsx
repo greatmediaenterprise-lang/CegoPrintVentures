@@ -77,7 +77,7 @@ const Hero = () => {
               <div className="text-white/80">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-glow">30+</div>
+              <div className="text-3xl font-bold text-primary-glow">30</div>
               <div className="text-white/80">Students Trained</div>
             </div>
             <div className="text-center">
