@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      branches: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          is_main: boolean | null
+          location: string
+          name: string
+          phone: string | null
+          service_time: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_main?: boolean | null
+          location: string
+          name: string
+          phone?: string | null
+          service_time?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_main?: boolean | null
+          location?: string
+          name?: string
+          phone?: string | null
+          service_time?: string | null
+        }
+        Relationships: []
+      }
       cart: {
         Row: {
           created_at: string
@@ -38,6 +71,120 @@ export type Database = {
           quantity?: number
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          created_at: string
+          description: string | null
+          event_date: string | null
+          id: string
+          image_url: string | null
+          location: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          event_date?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
+      gallery_images: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      leaders: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number | null
+          id: string
+          image_url: string | null
+          name: string
+          position: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          name: string
+          position: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          position?: string
+        }
+        Relationships: []
+      }
+      materials: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          file_type: string | null
+          file_url: string
+          id: string
+          title: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          file_type?: string | null
+          file_url: string
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          file_type?: string | null
+          file_url?: string
+          id?: string
+          title?: string
         }
         Relationships: []
       }
@@ -107,6 +254,87 @@ export type Database = {
         }
         Relationships: []
       }
+      service_times: {
+        Row: {
+          created_at: string
+          day: string
+          description: string | null
+          display_order: number | null
+          id: string
+          time: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          day: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          time: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          day?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          time?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      site_content: {
+        Row: {
+          id: string
+          key: string
+          section: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          id?: string
+          key: string
+          section: string
+          updated_at?: string
+          value?: string
+        }
+        Update: {
+          id?: string
+          key?: string
+          section?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
+      social_links: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number | null
+          id: string
+          platform: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          platform: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          platform?: string
+          url?: string
+        }
+        Relationships: []
+      }
       transactions: {
         Row: {
           amount: number
@@ -148,6 +376,24 @@ export type Database = {
           },
         ]
       }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           account_number: string
@@ -180,10 +426,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -310,6 +562,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
