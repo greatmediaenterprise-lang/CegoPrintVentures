@@ -7,14 +7,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
+              <a href="#home" className="flex items-center space-x-2 mb-4" aria-label="CEGOPRINT home">
               <div className="w-12 h-10 rounded-lg overflow-hidden">
                 <img 
                   src="/lovable-uploads/111830bb-85a5-4c56-b331-60887915da24.png" 
                   alt="CEGOPRINT Logo" 
                   className="w-full h-full object-contain"
                 />
-              </div>
+              </a>
               <div>
                 <h3 className="text-xl font-bold">CEGOPRINT</h3>
                 <p className="text-sm text-primary-foreground/80">Business Centre & More</p>
@@ -47,15 +47,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone size={16} />
-                <span className="text-primary-foreground/80">08038003004</span>
+                 <a href="tel:08038003004" className="text-primary-foreground/80 hover:underline">08038003004</a>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} />
-                <span className="text-primary-foreground/80 text-xs">235,Bola Ahmed Tinubu Road Oreyo, Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</span>
+                 <a href="https://www.google.com/maps/search/?api=1&query=235+Bola+Ahmed+Tinubu+Road+Oreyo+Opposite+Oreyo+Grammar+School+Igbogbo+Ikorodu+Lagos" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 text-xs hover:underline">235,Bola Ahmed Tinubu Road Oreyo, Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} />
-                <span className="text-primary-foreground/80">cegoprint2020@gmail.com</span>
+                 <a href="mailto:cegoprint2020@gmail.com" className="text-primary-foreground/80 hover:underline break-all">cegoprint2020@gmail.com</a>
               </div>
             </div>
           </div>

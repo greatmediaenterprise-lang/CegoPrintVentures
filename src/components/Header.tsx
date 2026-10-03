@@ -18,7 +18,7 @@ const Header = () => {
               />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-foreground">CEGOPRINT</h1>
+                 <span className="text-lg font-bold text-foreground">CEGOPRINT</span>
               <p className="text-xs text-muted-foreground">Business Centre & More</p>
             </div>
           </a>
