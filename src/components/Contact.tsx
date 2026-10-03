@@ -125,8 +125,8 @@ const Contact = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Phone Numbers</h4>
-                    <p className="text-muted-foreground">08038003004</p>
+                    <h4 className="font-semibold text-foreground mb-1">Phone Number</h4>
+                    <a href="tel:08038003004" className="text-primary hover:underline">08038003004</a>
                     <p className="text-sm text-muted-foreground">Call or WhatsApp us anytime</p>
                   </div>
                 </div>
@@ -137,8 +137,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">235,Bola Ahmed Tinubu Road Oreyo</p>
-                    <p className="text-sm text-muted-foreground">Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=235+Bola+Ahmed+Tinubu+Road+Oreyo+Opposite+Oreyo+Grammar+School+Igbogbo+Ikorodu+Lagos" target="_blank" rel="noopener noreferrer" className="block text-primary hover:underline">235, Bola Ahmed Tinubu Road Oreyo<br /><span className="text-sm">Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</span></a>
                   </div>
                 </div>
                 
@@ -148,7 +147,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground">cegoprint2020@gmail.com</p>
+                    <a href="mailto:cegoprint2020@gmail.com" className="text-primary hover:underline break-all">cegoprint2020@gmail.com</a>
                     <p className="text-sm text-muted-foreground">Send us your requirements</p>
                   </div>
                 </div>

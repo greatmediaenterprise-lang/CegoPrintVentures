@@ -338,6 +338,8 @@ export type Database = {
       transactions: {
         Row: {
           amount: number
+          bill_reference: string | null
+          category: string | null
           created_at: string | null
           description: string
           id: string
@@ -348,6 +350,8 @@ export type Database = {
         }
         Insert: {
           amount: number
+          bill_reference?: string | null
+          category?: string | null
           created_at?: string | null
           description: string
           id?: string
@@ -358,6 +362,8 @@ export type Database = {
         }
         Update: {
           amount?: number
+          bill_reference?: string | null
+          category?: string | null
           created_at?: string | null
           description?: string
           id?: string
@@ -426,12 +432,36 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_money: {
+        Args: { p_amount: number }
+        Returns: {
+          message: string
+          new_balance: number
+          success: boolean
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      pay_bill: {
+        Args: { p_amount: number; p_biller_name: string; p_reference: string }
+        Returns: {
+          message: string
+          new_balance: number
+          success: boolean
+        }[]
+      }
+      transfer_money: {
+        Args: { p_amount: number; p_description: string; p_recipient: string }
+        Returns: {
+          message: string
+          new_balance: number
+          success: boolean
+        }[]
       }
     }
     Enums: {

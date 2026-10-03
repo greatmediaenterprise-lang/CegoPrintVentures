@@ -68,8 +68,8 @@ const About = () => {
               </div>
             </div>
             
-            <Button variant="hero" size="lg">
-              Learn More About Us
+            <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Contact Us
             </Button>
           </div>
 

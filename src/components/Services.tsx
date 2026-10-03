@@ -17,7 +17,6 @@ import wordTrainingImg from "@/assets/services/word-training.jpg";
 import excelTrainingImg from "@/assets/services/excel-training.jpg";
 import powerpointTrainingImg from "@/assets/services/powerpoint-training.jpg";
 import designSoftwareTrainingImg from "@/assets/services/design-software-training.jpg";
-import computerTrainingClassroomImg from "@/assets/computer-training-classroom.png";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
@@ -215,7 +214,6 @@ const Services = () => {
               <Card 
                 key={index} 
                 className="bg-gradient-card backdrop-blur-sm border-0 shadow-elegant hover:shadow-glow transition-smooth transform hover:scale-105 cursor-pointer"
-                onClick={service.action}
               >
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 w-20 h-20 overflow-hidden rounded-lg">
@@ -225,7 +223,7 @@ const Services = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-center mb-4">{service.description}</p>
-                  <Button variant="hero" size="sm" className="w-full">
+                  <Button variant="hero" size="sm" className="w-full" onClick={service.action}>
                     View Details
                   </Button>
                 </CardContent>
@@ -244,7 +242,6 @@ const Services = () => {
               <Card 
                 key={index} 
                 className="bg-gradient-card backdrop-blur-sm border-0 shadow-elegant hover:shadow-glow transition-smooth transform hover:scale-105 cursor-pointer"
-                onClick={service.action}
               >
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 w-20 h-20 overflow-hidden rounded-lg">
@@ -254,7 +251,7 @@ const Services = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-center mb-4">{service.description}</p>
-                  <Button variant="secondary" size="sm" className="w-full">
+                  <Button variant="secondary" size="sm" className="w-full" onClick={service.action}>
                     View Details
                   </Button>
                 </CardContent>
@@ -280,7 +277,6 @@ const Services = () => {
               <Card 
                 key={index} 
                 className="bg-gradient-card backdrop-blur-sm border-0 shadow-elegant hover:shadow-glow transition-smooth transform hover:scale-105 cursor-pointer"
-                onClick={service.action}
               >
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 w-20 h-20 overflow-hidden rounded-lg">
@@ -290,7 +286,7 @@ const Services = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-center mb-4">{service.description}</p>
-                  <Button variant="cta" size="sm" className="w-full">
+                  <Button variant="cta" size="sm" className="w-full" onClick={service.action}>
                     View Details
                   </Button>
                 </CardContent>
