@@ -15,14 +15,40 @@ const App = () => {
 
   useEffect(() => {
     let active = true;
+    let imageReady = false;
+    let minimumElapsed = false;
+    let interactionTimer: number | undefined;
+    const finishInitial = () => {
+      if (active && imageReady && minimumElapsed) setLoading(false);
+    };
     const image = new Image();
-    const finish = () => { if (active) setLoading(false); };
-    image.onload = finish;
-    image.onerror = finish;
+    const finishImage = () => { imageReady = true; finishInitial(); };
+    image.onload = finishImage;
+    image.onerror = finishImage;
     image.src = heroImage;
-    if (image.complete) finish();
-    const timeout = window.setTimeout(finish, 1800);
-    return () => { active = false; window.clearTimeout(timeout); };
+    if (image.complete) finishImage();
+    const minimumTimer = window.setTimeout(() => { minimumElapsed = true; finishInitial(); }, 700);
+    const fallbackTimer = window.setTimeout(finishImage, 1800);
+
+    // A single listener covers navigation links and action buttons throughout the page.
+    const showOnAction = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      const action = event.target.closest('a[href], button');
+      if (!action || action.hasAttribute('disabled') || action.getAttribute('aria-disabled') === 'true') return;
+      // Menu and dialog controls change the current view instantly, not the destination.
+      if (action.matches('[aria-controls="mobile-navigation"], [data-radix-dialog-close]')) return;
+      window.clearTimeout(interactionTimer);
+      setLoading(true);
+      interactionTimer = window.setTimeout(() => setLoading(false), 700);
+    };
+    document.addEventListener('click', showOnAction, true);
+    return () => {
+      active = false;
+      document.removeEventListener('click', showOnAction, true);
+      window.clearTimeout(minimumTimer);
+      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(interactionTimer);
+    };
   }, []);
 
   return (
