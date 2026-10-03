@@ -15,7 +15,6 @@ const Footer = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              </a>
               <div>
                 <h3 className="text-xl font-bold">CEGOPRINT</h3>
                 <p className="text-sm text-primary-foreground/80">Business Centre & More</p>
