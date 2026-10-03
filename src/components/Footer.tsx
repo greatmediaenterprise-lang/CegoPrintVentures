@@ -14,12 +14,13 @@ const Footer = () => {
                   alt="CEGOPRINT Logo" 
                   className="w-full h-full object-contain"
                 />
+              </div>
               </a>
               <div>
                 <h3 className="text-xl font-bold">CEGOPRINT</h3>
                 <p className="text-sm text-primary-foreground/80">Business Centre & More</p>
               </div>
-            </div>
+            </a>
             <p className="text-primary-foreground/80 mb-4">
               Your complete business solution for printing, training, bill payments, 
               educational services, and digital solutions in Igbogbo, Ikorodu.
