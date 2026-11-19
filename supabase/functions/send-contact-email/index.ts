@@ -1,129 +1,122 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { z } from "npm:zod@3.23.8";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const ContactEmailSchema = z.object({
+  name: z.string().trim().min(2).max(100),
+  email: z.string().trim().email().max(254),
+  phone: z.string().trim().min(10).max(30).regex(/^[0-9+()\s-]+$/),
+  subject: z.string().trim().min(5).max(200),
+  message: z.string().trim().min(10).max(2000),
+});
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-};
+const escapeHtml = (value: string): string =>
+  value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[character] ?? character;
+  });
 
-interface ContactEmailRequest {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
+const jsonResponse = (body: Record<string, unknown>, status = 200) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
 
 const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+    return new Response("ok", { headers: corsHeaders });
   }
 
+  if (req.method !== "POST") {
+    return jsonResponse({ success: false, error: "Method not allowed" }, 405);
+  }
+
+  let body: unknown;
   try {
-    const { name, email, phone, subject, message }: ContactEmailRequest = await req.json();
+    body = await req.json();
+  } catch {
+    return jsonResponse({ success: false, error: "Invalid request body" }, 400);
+  }
 
-    console.log("Received contact form submission:", { name, email, subject });
+  const parsed = ContactEmailSchema.safeParse(body);
+  if (!parsed.success) {
+    return jsonResponse({
+      success: false,
+      error: "Please check the name, phone, email, subject, and message fields.",
+    }, 400);
+  }
 
-    // Send email to business
-    const emailResponse = await resend.emails.send({
+  const apiKey = Deno.env.get("RESEND_API_KEY");
+  if (!apiKey) {
+    console.error("Contact email service is not configured");
+    return jsonResponse({ success: false, error: "Email service is unavailable" }, 500);
+  }
+
+  const resend = new Resend(apiKey);
+  const { name, email, phone, subject, message } = parsed.data;
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message).replace(/\r?\n/g, "<br>");
+
+  try {
+    const businessEmail = await resend.emails.send({
       from: "CEGOPRINT Contact Form <onboarding@resend.dev>",
       to: ["cegoprint2020@gmail.com"],
       subject: `New Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          
-          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #374151; margin-top: 0;">Contact Details:</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
-          </div>
-          
-          <div style="background-color: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-            <h3 style="color: #374151; margin-top: 0;">Message:</h3>
-            <p style="line-height: 1.6; color: #4b5563;">${message}</p>
-          </div>
-          
-          <div style="margin-top: 20px; padding: 15px; background-color: #dbeafe; border-radius: 8px;">
-            <p style="margin: 0; color: #1e40af; font-size: 14px;">
-              <strong>Response Instructions:</strong> Please respond to this inquiry within 24 hours for best customer service.
-            </p>
-          </div>
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Email:</strong> ${safeEmail}</p>
+          <p><strong>Phone:</strong> ${safePhone}</p>
+          <p><strong>Subject:</strong> ${safeSubject}</p>
+          <h3>Message</h3>
+          <p>${safeMessage}</p>
         </div>
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    if (businessEmail.error) {
+      console.error("Business contact email delivery failed");
+      return jsonResponse({ success: false, error: "Unable to send your message right now" }, 502);
+    }
 
-    // Send confirmation email to customer
-    await resend.emails.send({
+    const confirmationEmail = await resend.emails.send({
       from: "CEGOPRINT <onboarding@resend.dev>",
       to: [email],
       subject: "Thank you for contacting CEGOPRINT!",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
-            Thank You for Contacting CEGOPRINT!
-          </h2>
-          
-          <p>Dear ${name},</p>
-          
-          <p>Thank you for reaching out to CEGOPRINT Business Centre & More. We have received your message regarding "<strong>${subject}</strong>" and will get back to you within 24 hours.</p>
-          
-          <div style="background-color: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #22c55e;">
-            <h3 style="color: #166534; margin-top: 0;">Your Message Summary:</h3>
-            <p style="color: #166534; margin: 0;"><strong>Subject:</strong> ${subject}</p>
-            <p style="color: #166534; margin: 10px 0 0 0;"><strong>Phone:</strong> ${phone}</p>
-          </div>
-          
-          <div style="background-color: #fef3c7; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #92400e; margin-top: 0;">Need Immediate Assistance?</h3>
-            <p style="color: #92400e; margin-bottom: 10px;">For urgent matters, feel free to contact us directly:</p>
-            <p style="color: #92400e; margin: 5px 0;"><strong>Phone/WhatsApp:</strong> 08038003004</p>
-            <p style="color: #92400e; margin: 5px 0;"><strong>Location:</strong> 235, Bola Ahmed Tinubu Road Oreyo, Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</p>
-          </div>
-          
-          <p>We appreciate your interest in our services including printing, computer training, bill payments, and more.</p>
-          
-          <p style="margin-top: 30px;">
-            Best regards,<br>
-            <strong>CEGOPRINT Team</strong><br>
-            <em>Your trusted business partner in Ikorodu</em>
-          </p>
+          <h2>Thank You for Contacting CEGOPRINT!</h2>
+          <p>Dear ${safeName},</p>
+          <p>We received your message regarding “<strong>${safeSubject}</strong>” and will get back to you within 24 hours.</p>
+          <p><strong>Phone/WhatsApp:</strong> 08038003004</p>
+          <p><strong>Location:</strong> 235, Bola Ahmed Tinubu Road Oreyo, Opposite Oreyo Grammar Sch. Oreyo, Igbogbo, Ikorodu Lagos</p>
+          <p>Best regards,<br><strong>CEGOPRINT Team</strong></p>
         </div>
       `,
     });
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      message: "Email sent successfully" 
-    }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders,
-      },
+    if (confirmationEmail.error) {
+      console.error("Contact confirmation email delivery failed");
+    }
+
+    return jsonResponse({
+      success: true,
+      message: "Email sent successfully",
     });
-  } catch (error: any) {
-    console.error("Error in send-contact-email function:", error);
-    return new Response(
-      JSON.stringify({ 
-        success: false, 
-        error: error.message 
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+  } catch {
+    console.error("Contact email service request failed");
+    return jsonResponse({ success: false, error: "Unable to send your message right now" }, 502);
   }
 };
 
